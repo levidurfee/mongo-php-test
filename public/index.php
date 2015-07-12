@@ -15,6 +15,6 @@ $mp->createUser();
 
 $mp->getAllUsers()->orderUsersDesc();
 foreach ($mp->cursor as $document) {
-    echo '<p>' . $document['_id'] . ' | ' . $document['username'] . ' | ' . $document['password'] . ' | '
-        . $document['randId'] . '</p>' . "\r\n";
+    echo "<p>" . $document["_id"] . "\t" . $document["username"] . "\t" . $document["password"] . "\t"
+        . $document["randId"] . "\t" . $document["created"] . "</p>" . "\r\n";
 }

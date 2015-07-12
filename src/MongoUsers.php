@@ -34,7 +34,7 @@ class MongoUsers extends MongoPhp
 
     public function orderUsersDesc()
     {
-        $this->cursor->sort(array('created' => -1));
+        $this->cursor->sort(array('_id' => -1));
     }
 
     public function selectUser()
