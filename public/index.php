@@ -14,6 +14,8 @@ $mp->password = 'notmyrealpasswordORisit?';
 $mp->createUser();
 
 $mp->getAllUsers();
+$mp->cursor->sort(array('_id' => -1));
 foreach ($mp->cursor as $document) {
-    echo '<p>' . $document['username'] . ' | ' . $document['password'] . ' | ' . $document['randId'] . '</p>';
+    echo '<p>' . $document['_id'] . ' | ' . $document['username'] . ' | ' . $document['password'] . ' | '
+        . $document['randId'] . '</p>' . "\r\n";
 }
