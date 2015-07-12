@@ -13,8 +13,7 @@ $mp->username = 'levi';
 $mp->password = 'notmyrealpasswordORisit?';
 $mp->createUser();
 
-$mp->getAllUsers();
-$mp->cursor->sort(array('_id' => -1));
+$mp->getAllUsers()->orderUsersDesc();
 foreach ($mp->cursor as $document) {
     echo '<p>' . $document['_id'] . ' | ' . $document['username'] . ' | ' . $document['password'] . ' | '
         . $document['randId'] . '</p>' . "\r\n";

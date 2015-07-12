@@ -29,6 +29,12 @@ class MongoUsers extends MongoPhp
     public function getAllUsers()
     {
        $this->cursor = $this->collection->find();
+        return $this;
+    }
+
+    public function orderUsersDesc()
+    {
+        $this->cursor->sort(array('created' => -1));
     }
 
     public function selectUser()
@@ -38,11 +44,13 @@ class MongoUsers extends MongoPhp
 
     protected function createUserArray()
     {
+        $created = new \MongoDate();
         $password = password_hash($this->password, PASSWORD_DEFAULT);
         $randId = mt_rand(9999, 999999);
         $this->userArray = array(
             "username" => $this->username,
             "password" => $password,
+            "created"  => $created,
             "randId"   => $randId
         );
     }
