@@ -2,27 +2,17 @@
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(-1);
-// connect
-$m = new MongoClient();
 
-// select a database
-$db = $m->comedy;
+define("DS", DIRECTORY_SEPARATOR);
+require_once('..' . DS . 'vendor' . DS . 'autoload.php');
 
-// select a collection (analogous to a relational database's table)
-$collection = $db->cartoons;
+$mp = new teklife\MongoUsers;
+$mp->username = 'levi';
+$mp->password = 'notmyrealpasswordORisit?';
+$mp->createUser();
 
-// add a record
-$document = array( "title" => "Calvin and Hobbes", "author" => "Bill Watterson" );
-$collection->insert($document);
-
-// add another record, with a different "shape"
-$document = array( "title" => "XKCD", "online" => true );
-$collection->insert($document);
-
-// find everything in the collection
-$cursor = $collection->find();
-
-// iterate through the results
-foreach ($cursor as $document) {
-    echo $document["title"] . "\n";
+$mp->getAllUsers();
+var_dump($mp->cursor);
+foreach ($mp->cursor as $document) {
+    echo '<p>' . $document['username'] . ' | ' . $document['password'] . ' | ' . $document['randId'] . '</p>';
 }
