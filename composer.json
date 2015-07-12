@@ -9,7 +9,7 @@
   }],
   "require": {
     "php": ">=5.5",
-    "mongodb": "*",
+    "ext-mongo": ">=1.2.12,<1.7-dev",
     "ext-json": "*"
   },
   "autoload": {
