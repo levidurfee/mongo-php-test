@@ -1,0 +1,20 @@
+{
+  "name": "teklife/mongo-php-test",
+  "description": "Testing mongodb and php",
+  "version": "0.1.0",
+  "license": "Apache 2.0",
+  "authors": [{
+    "name": "Levi Durfee",
+    "email": "levi.durfee@gmail.com"
+  }],
+  "require": {
+    "php": ">=5.5",
+    "ext-mongo": ">=1.2.12,<1.7-dev",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "teklife\\": "src/"
+    }
+  }
+}
