@@ -46,7 +46,7 @@ $i = 1;
 echo "<pre>";
 foreach ($posts->cursor as $document) {
     echo $i . "\t" . $document["_id"] . "\t" . $document["title"] . "\t" . $document["entry"] . "\t"
-        . $document["created"] . "\t" . $document["uid"] . "\r\n";
+        . $document["created"] . "\t" . $mp->getUsername($document["uid"]) . "\r\n";
     $i++;
 }
 echo "</pre>";

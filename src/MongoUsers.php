@@ -43,6 +43,12 @@ class MongoUsers extends MongoPhp
         $this->cursor->limit($limit);
     }
 
+    public function getUsername($refId)
+    {
+        $cursor = $this->collection->findOne(array('_id' => new \MongoId($refId)));
+        return $cursor['username'];
+    }
+
     public function selectUser()
     {
 
