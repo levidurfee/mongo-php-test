@@ -13,7 +13,7 @@ $mp->username = 'levi';
 $mp->password = 'notmyrealpasswordORisit?';
 $mp->createUser();
 
-$mp->getAllUsers()->orderUsersDesc();
+$mp->getAllUsers()->orderUsersDesc()->limitUsers();
 $i = 1;
 echo "<pre>";
 foreach ($mp->cursor as $document) {

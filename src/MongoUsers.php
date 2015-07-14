@@ -35,6 +35,12 @@ class MongoUsers extends MongoPhp
     public function orderUsersDesc()
     {
         $this->cursor->sort(array('_id' => -1));
+        return $this;
+    }
+
+    public function limitUsers($limit = 10)
+    {
+        $this->cursor->limit($limit);
     }
 
     public function selectUser()
