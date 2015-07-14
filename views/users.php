@@ -16,16 +16,17 @@
 
 <body>
 <?php
-$posts = new teklife\MongoPosts;
-$posts->title = "Test title";
-$posts->createPost();
+$mp = new teklife\MongoUsers;
+$mp->username = 'levi';
+$mp->password = 'notmyrealpasswordORisit?';
+$mp->createUser();
 
-$posts->getAllPosts()->orderPostsDesc()->limitPosts();
+$mp->getAllUsers()->orderUsersDesc()->limitUsers();
 $i = 1;
 echo "<pre>";
-foreach ($posts->cursor as $document) {
-    echo $i . "\t" . $document["_id"] . "\t" . $document["title"] . "\t" . $document["entry"] . "\t"
-        . $document["created"] . "\r\n";
+foreach ($mp->cursor as $document) {
+    echo $i . "\t" . $document["_id"] . "\t" . $document["username"] . "\t" . $document["password"] . "\t"
+        . $document["randId"] . "\t" . $document["created"] . "\r\n";
     $i++;
 }
 echo "</pre>";

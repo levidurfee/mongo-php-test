@@ -28,7 +28,7 @@ class MongoUsers extends MongoPhp
 
     public function getAllUsers()
     {
-       $this->cursor = $this->collection->find();
+        $this->cursor = $this->collection->find();
         return $this;
     }
 
