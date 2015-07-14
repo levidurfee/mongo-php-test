@@ -8,17 +8,4 @@ date_default_timezone_set("America/New_York");
 define("DS", DIRECTORY_SEPARATOR);
 require_once('..' . DS . 'vendor' . DS . 'autoload.php');
 
-$mp = new teklife\MongoUsers;
-$mp->username = 'levi';
-$mp->password = 'notmyrealpasswordORisit?';
-$mp->createUser();
-
-$mp->getAllUsers()->orderUsersDesc()->limitUsers();
-$i = 1;
-echo "<pre>";
-foreach ($mp->cursor as $document) {
-    echo $i . "\t" . $document["_id"] . "\t" . $document["username"] . "\t" . $document["password"] . "\t"
-        . $document["randId"] . "\t" . $document["created"] . "\r\n";
-    $i++;
-}
-echo "</pre>";
+require_once('..' . DS . 'views' . DS . 'index.php');
