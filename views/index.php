@@ -15,21 +15,41 @@
 </head>
 
 <body>
+<h1>Testing MongoDB with PHP</h1>
+
+<h2>Users</h2>
+<?php
+$mp = new teklife\MongoUsers;
+$mp->username = 'levi';
+$mp->password = 'notmyrealpasswordORisit?';
+$mp->createUser();
+
+$mp->getAllUsers()->orderUsersDesc()->limitUsers();
+$i = 1;
+echo "<pre>";
+foreach ($mp->cursor as $document) {
+    echo $i . "\t" . $document["_id"] . "\t" . $document["username"] . "\t" . $document["password"] . "\t"
+        . $document["randId"] . "\t" . $document["created"] . "\r\n";
+    $i++;
+}
+echo "</pre>";
+?>
+
+<h2>Posts</h2>
 <?php
 $posts = new teklife\MongoPosts;
 $posts->title = "Test title";
-$posts->createPost();
+$posts->createPost($document["_id"]);
 
 $posts->getAllPosts()->orderPostsDesc()->limitPosts();
 $i = 1;
 echo "<pre>";
 foreach ($posts->cursor as $document) {
     echo $i . "\t" . $document["_id"] . "\t" . $document["title"] . "\t" . $document["entry"] . "\t"
-        . $document["created"] . "\r\n";
+        . $document["created"] . "\t" . $document["uid"] . "\r\n";
     $i++;
 }
 echo "</pre>";
-
 ?>
 </body>
 </html>

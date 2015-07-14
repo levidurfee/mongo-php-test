@@ -12,6 +12,7 @@ class MongoPosts extends MongoPhp
     protected $db;
     protected $m;
 
+    public $userId;
     protected $postArray;
 
     public function __construct()
@@ -21,8 +22,9 @@ class MongoPosts extends MongoPhp
         $this->collection = $this->db->Posts;
     }
 
-    public function createPost()
+    public function createPost($userId = 1)
     {
+        $this->userId = new \MongoId($userId);
         $this->createEntry();
         $this->createPostArray();
         $this->collection->insert($this->postArray);
@@ -53,7 +55,7 @@ class MongoPosts extends MongoPhp
             'entry'     => $this->entry,
             'created'   => $created,
             'author'    => 'Levi',
-            'uid'       => 1,
+            'uid'       => $this->userId,
             'likes'     => array(
                 'uid'   => 1,
                 'uid'   => 2,
