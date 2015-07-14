@@ -49,6 +49,11 @@ class MongoUsers extends MongoPhp
         return $cursor['username'];
     }
 
+    public function getNumUsers()
+    {
+        return $this->collection->count();
+    }
+
     public function selectUser()
     {
 

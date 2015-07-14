@@ -47,6 +47,11 @@ class MongoPosts extends MongoPhp
         $this->cursor->limit($limit);
     }
 
+    public function getTotalPosts()
+    {
+        return $this->collection->count();
+    }
+
     protected function createPostArray()
     {
         $created = new \MongoDate();

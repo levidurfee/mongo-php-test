@@ -15,11 +15,15 @@
 </head>
 
 <body>
+<?php
+$mp = new teklife\MongoUsers;
+$posts = new teklife\MongoPosts;
+?>
 <h1>Testing MongoDB with PHP</h1>
 
 <h2>Users</h2>
+<h3><?php echo $mp->getNumUsers(); ?> total users</h3>
 <?php
-$mp = new teklife\MongoUsers;
 $mp->username = 'levi' . mt_rand(0, 999999);
 $mp->password = 'notmyrealpasswordORisit?';
 $mp->createUser();
@@ -36,8 +40,8 @@ echo "</pre>";
 ?>
 
 <h2>Posts</h2>
+<h3><?php echo $posts->getTotalPosts(); ?></h3>
 <?php
-$posts = new teklife\MongoPosts;
 $posts->title = "Test title";
 $posts->createPost($document["_id"]);
 
