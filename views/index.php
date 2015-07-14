@@ -22,7 +22,6 @@ $posts = new teklife\MongoPosts;
 <h1>Testing MongoDB with PHP</h1>
 
 <h2>Users</h2>
-<h3><?php echo $mp->getNumUsers(); ?> total users</h3>
 <?php
 $mp->username = 'levi' . mt_rand(0, 999999);
 $mp->password = 'notmyrealpasswordORisit?';
@@ -38,9 +37,10 @@ foreach ($mp->cursor as $document) {
 }
 echo "</pre>";
 ?>
+<h3><?php echo $mp->getNumUsers(); ?> total users</h3>
+<hr>
 
 <h2>Posts</h2>
-<h3><?php echo $posts->getTotalPosts(); ?></h3>
 <?php
 $posts->title = "Test title";
 $posts->createPost($document["_id"]);
@@ -55,5 +55,6 @@ foreach ($posts->cursor as $document) {
 }
 echo "</pre>";
 ?>
+<h3><?php echo $posts->getTotalPosts(); ?> total posts</h3>
 </body>
 </html>
