@@ -62,8 +62,8 @@ class MongoPosts extends MongoPhp
             'author'    => 'Levi',
             'uid'       => $this->userId,
             'likes'     => array(
-                'uid'   => 1,
-                'uid'   => 2,
+                1,
+                2,
             )
         );
     }
