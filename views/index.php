@@ -7,6 +7,7 @@
     <title>6c657669 test site</title>
     <meta name="description" content="6c657669 test site">
     <meta name="author" content="Levi Durfee">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
