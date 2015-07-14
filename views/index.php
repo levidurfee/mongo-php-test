@@ -20,7 +20,7 @@
 <h2>Users</h2>
 <?php
 $mp = new teklife\MongoUsers;
-$mp->username = 'levi';
+$mp->username = 'levi' . mt_rand(0, 999999);
 $mp->password = 'notmyrealpasswordORisit?';
 $mp->createUser();
 
