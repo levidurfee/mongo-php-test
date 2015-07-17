@@ -56,5 +56,8 @@ foreach ($posts->cursor as $document) {
 echo "</pre>";
 ?>
 <h3><?php echo $posts->getTotalPosts(); ?> total posts</h3>
+
+<h2>Code</h2>
+<p>View the code for this site on <a href="https://github.com/levidurfee/mongo-php-test" target="_BLANK">GitHub</a>.</p>
 </body>
 </html>
