@@ -1,5 +1,8 @@
 <?php namespace teklife;
-require_once('..' . DIRECTORY_SEPARATOR . 'config.php');
+$config = '..' . DIRECTORY_SEPARATOR . 'config.php';
+if(file_exists($config)) {
+    require_once($config);
+}
 
 class MongoPhp
 {
