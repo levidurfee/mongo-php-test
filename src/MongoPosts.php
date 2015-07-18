@@ -1,6 +1,5 @@
 <?php namespace teklife;
 
-
 class MongoPosts extends MongoPhp
 {
     public $title;

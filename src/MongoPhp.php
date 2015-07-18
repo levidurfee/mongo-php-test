@@ -13,7 +13,7 @@ class MongoPhp
             $configSet = true;
             require_once($config);
         }
-        
+
         if($configSet) {
             try {
                 $this->m = new \MongoClient("mongodb://" . MONGO_DB_UN . ":" . MONGO_DB_PW . "@" . MONGO_DB_IP . "/Website");
