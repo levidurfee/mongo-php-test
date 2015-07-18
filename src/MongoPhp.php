@@ -9,7 +9,8 @@ class MongoPhp
     public function __construct()
     {
         try {
-            $this->m = new \MongoClient("mongodb://" . MONGO_DB_UN . ":" . MONGO_DB_PW . "@" . MONGO_DB_IP . "/Website");
+            #$this->m = new \MongoClient("mongodb://" . MONGO_DB_UN . ":" . MONGO_DB_PW . "@" . MONGO_DB_IP . "/Website");
+            $this->m = new \MongoClient();
         } catch(\Exception $e) {
             echo "Couldn't connect.";
             exit;
