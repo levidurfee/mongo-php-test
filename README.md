@@ -4,3 +4,5 @@
 [![build 0.1.0](https://img.shields.io/badge/build-0.1.0-orange.svg)]()
 
 Just playing around with MongoDB and php.
+
+**Might make it use MySQL as well to see how well I can make them work together.**
