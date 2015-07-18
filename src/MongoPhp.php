@@ -1,5 +1,5 @@
 <?php namespace teklife;
-
+require_once('..' . DIRECTORY_SEPARATOR . 'config.php');
 
 class MongoPhp
 {
@@ -8,7 +8,15 @@ class MongoPhp
 
     public function __construct()
     {
-        $this->m = new \MongoClient();
+        try {
+            $this->m = new \MongoClient("mongodb://" . MONGO_DB_UN . ":" . MONGO_DB_PW . "@" . MONGO_DB_IP . "/Website");
+        } catch(\Exception $e) {
+            echo "Couldn't connect.";
+            exit;
+        } catch(\MongoConnectionException $e) {
+            echo "Couldn't connect.";
+            exit;
+        }
         $this->db = $this->m->Website;
     }
 
